@@ -82,9 +82,8 @@ export default function RateButton({parsedTrigger}:RateButtonProps) {
         if (val1 && val2) {
             setFrom(val1.currency);
             setTo(val2.currency);
-            // setLinkDisable(false);
-            
-            // triggerの値をトグル（true <-> false）させる
+
+            // triggerの値をトグル
             setTrigger((prev) => !prev);
             console.log("通貨換算リクエストを送信")
         } else {

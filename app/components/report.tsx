@@ -35,7 +35,7 @@ const Report=()=>{
                 xAxis={[
                     {
                     //   label: "Date",
-                      data: numericXAxisData, // x軸にインデックスを使用
+                      data: numericXAxisData, // x軸にインデックス
                       scaleType: "band",
                       dataKey: 'month',
                       valueFormatter,
@@ -43,10 +43,9 @@ const Report=()=>{
                 ]}
                 
           
-                width={600} // 必要な場合は他のプロパティも追加
-                height={300} // 必要な場合は他のプロパティも追加
+                width={600} 
+                height={300}
                 sx={{textAlign:"center",margin:"auto"}}
-                // ...
             />
             </Box>
         </>
