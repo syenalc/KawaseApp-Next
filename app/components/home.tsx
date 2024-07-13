@@ -1,10 +1,9 @@
 "use client"
 
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import React from "react";
 import CountrySelect from "./CountrySelect";
-import RateButton from "./RateButton";
-import { useEffect,useContext,useState } from "react";
+import { useEffect,useContext } from "react";
 import { CurrencyContext } from "../context/CurrencyContext";
 
 
@@ -31,18 +30,8 @@ const Home=()=>{
     }, []);
     
     
-    // useEffect(() => {
-    //     // Homeに戻ってきたときに初期化処理を行う
-    //     // 必要に応じて初期化処理を追加します
-    //     console.log("Home component mounted");
-    //     return () => {
-    //         console.log("Home component unmounted");
-    //     };
-    // }, []);
-    
     return(
         <Box sx={{padding:"50px"}}>
-            {/* linkDisabled={linkDisabled} setLinkDisable={setLinkDisable} */}
             <CountrySelect parsedTrigger={parsedTrigger}/>
         </Box>
     );

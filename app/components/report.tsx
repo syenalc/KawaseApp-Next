@@ -2,7 +2,6 @@
 
 import React, { useContext } from "react";
 import { LineChart } from '@mui/x-charts/LineChart';
-// import { Chart, LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend } from 'chart.js';
 import { Box, Typography } from "@mui/material";
 import { CurrencyContext } from "../context/CurrencyContext";
 

@@ -1,11 +1,11 @@
 "use client"
 
-import { useEffect,useState,useContext,ReactNode , Dispatch, SetStateAction } from 'react';
+import { useContext } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import SyncAltIcon from '@mui/icons-material/SyncAlt';
-import { Button, Fab, ThemeProvider } from '@mui/material';
+import {  Fab, ThemeProvider } from '@mui/material';
 import RateButton from './RateButton';
 import { theme } from '../theme/theme';
 import { CurrencyContext } from '../context/CurrencyContext';
