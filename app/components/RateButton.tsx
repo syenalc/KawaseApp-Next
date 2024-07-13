@@ -54,8 +54,8 @@ export default function RateButton({parsedTrigger}:RateButtonProps) {
     useEffect(() => {
         if (from && to) {
             const fetchData = async () => {
-                const endpoint = 'convert';
-                const keeys = "fee6feb01162d3fe5c84d5ac41a290d5";
+                const endpoint = process.env.NEXT_PUBLIC_API_END;
+                const keeys = process.env.NEXT_PUBLIC_API_KEY;
                 const url = `https://api.exchangerate.host/${endpoint}?access_key=${keeys}&from=${from}&to=${to}&amount=${amount}`;
 
                 try {
@@ -154,8 +154,8 @@ export default function RateButton({parsedTrigger}:RateButtonProps) {
         console.log(formattedFourWeekAgo);
 
         const fetchData1wago = async () => {
-            const endpoint = 'convert';
-            const keeys = "fee6feb01162d3fe5c84d5ac41a290d5";
+            const endpoint = process.env.NEXT_PUBLIC_API_END;
+            const keeys = process.env.NEXT_PUBLIC_API_KEY;
             const url = `https://api.exchangerate.host/${endpoint}?access_key=${keeys}&from=${from}&to=${to}&amount=${amount}&date=${formattedOneWeekAgo}`;
 
             try {
@@ -176,8 +176,8 @@ export default function RateButton({parsedTrigger}:RateButtonProps) {
         fetchData1wago();
 
         const fetchData2wago = async () => {
-            const endpoint = 'convert';
-            const keeys = "fee6feb01162d3fe5c84d5ac41a290d5";
+            const endpoint = process.env.NEXT_PUBLIC_API_END;
+            const keeys = process.env.NEXT_PUBLIC_API_KEY;
             const url = `https://api.exchangerate.host/${endpoint}?access_key=${keeys}&from=${from}&to=${to}&amount=${amount}&date=${formattedTwoWeekAgo}`;
 
             try {
@@ -199,8 +199,8 @@ export default function RateButton({parsedTrigger}:RateButtonProps) {
         fetchData2wago();
 
         const fetchData3wago = async () => {
-            const endpoint = 'convert';
-            const keeys = "fee6feb01162d3fe5c84d5ac41a290d5";
+            const endpoint = process.env.NEXT_PUBLIC_API_END;
+            const keeys = process.env.NEXT_PUBLIC_API_KEY;
             const url = `https://api.exchangerate.host/${endpoint}?access_key=${keeys}&from=${from}&to=${to}&amount=${amount}&date=${formattedThreeWeekAgo}`;
 
             try {
@@ -221,8 +221,8 @@ export default function RateButton({parsedTrigger}:RateButtonProps) {
         fetchData3wago();
 
         const fetchData4wago = async () => {
-            const endpoint = 'convert';
-            const keeys = "fee6feb01162d3fe5c84d5ac41a290d5";
+            const endpoint = process.env.NEXT_PUBLIC_API_END;
+            const keeys = process.env.NEXT_PUBLIC_API_KEY;
             const url = `https://api.exchangerate.host/${endpoint}?access_key=${keeys}&from=${from}&to=${to}&amount=${amount}&date=${formattedFourWeekAgo}`;
 
             try {
@@ -256,9 +256,7 @@ export default function RateButton({parsedTrigger}:RateButtonProps) {
             {rate !== null && <Box sx={{marginTop:"40px"}}>
             <Card sx={{ minWidth: 275, maxWidth: 500, margin:"auto", padding:"20px" }}>
                 <CardContent>
-                    <Typography sx={{ fontSize: 14 }}  color="text.secondary" gutterBottom>
                         <p style={{textAlign:"center"}}><span style={{color:"grey"}}>1{from}は </span><span style={{fontSize:"1.8em",color:"#007bff"}}>{rate}</span> <span style={{color:"grey"}}>{to}</span></p>
-                    </Typography>
                 </CardContent>
                 <CardActions>
                     <Button size="small" onClick={dataStorage}><Link href="report"><span style={{color:"#007bff",textDecoration:"underline",cursor:"pointer"}}>詳しく見る</span></Link></Button>
