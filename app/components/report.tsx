@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { LineChart } from '@mui/x-charts/LineChart';
 import { Box, Typography } from "@mui/material";
 import { CurrencyContext } from "../context/CurrencyContext";
@@ -27,7 +27,7 @@ const Report=()=>{
     return(
         <>
             <Box  width={"50%"} margin="auto" textAlign={"center"}>
-            <Typography><div style={{textAlign:"center", fontSize:"24px",marginTop:"40px"}}>過去1カ月間の推移</div></Typography>
+            <Typography>過去1カ月間の推移</Typography>
             <LineChart
                 series={[
                 { curve: "linear", data: [rate4, rate3, rate2, rate1, rate] },

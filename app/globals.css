@@ -109,3 +109,21 @@ a {
 ol{
   list-style: none !important;
 }
+
+.MuiButtonBase-root{
+  border:none !important;
+  background-color: white;
+}
+
+input{
+  border:none;
+}
+
+.mui-14rcxpj-MuiTypography-root{
+  text-align: center;
+  font-size: 24px;
+} 
+
+.mui-11w0c5a{
+  padding-top :40px;
+}

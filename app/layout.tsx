@@ -7,7 +7,6 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { theme } from "./theme/theme";
 import { CurrencyProvider } from "./context/CurrencyContext";
 import './globals.css';
-import React from 'react';
 import { Box, Breadcrumbs, Link as MuiLink, Typography } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import BarChartIcon from '@mui/icons-material/BarChart';

@@ -15,19 +15,39 @@ const Home=()=>{
     }
 
     const { val1, val2,from,to,rate,setFrom,setTo,setRate} = currencyContext;
-    const storedTrigger = localStorage.getItem('trigger');
-    const parsedTrigger:boolean = storedTrigger !==null ? JSON.parse(storedTrigger) : false;
+    // const storedTrigger = localStorage.getItem('trigger');
+    // const parsedTrigger:boolean = storedTrigger !==null ? JSON.parse(storedTrigger) : false;
 
-    const newFrom= localStorage.getItem('from');
-    const newTo= localStorage.getItem('to');
-    const newRate= localStorage.getItem('rate');
+    // const newFrom= localStorage.getItem('from');
+    // const newTo= localStorage.getItem('to');
+    // const newRate= localStorage.getItem('rate');
+    // useEffect(() => {
+
+    //     // fromやtoの値を設定する
+    //     if (newFrom) setFrom(JSON.parse(newFrom));
+    //     if (newTo) setTo(JSON.parse(newTo));
+    //     if (newRate) setRate(JSON.parse(newRate));
+    // }, []);
+
     useEffect(() => {
-
+        const storedTrigger = localStorage.getItem('trigger');
+        const parsedTrigger = storedTrigger !== null ? JSON.parse(storedTrigger) : false;
+    
+        const newFrom = localStorage.getItem('from');
+        const newTo = localStorage.getItem('to');
+        const newRate = localStorage.getItem('rate');
+    
         // fromやtoの値を設定する
         if (newFrom) setFrom(JSON.parse(newFrom));
         if (newTo) setTo(JSON.parse(newTo));
         if (newRate) setRate(JSON.parse(newRate));
-    }, []);
+    
+        // トリガーを設定する
+        // NOTE: ここではCountrySelectのparsedTrigger propに渡すために、状態を設定します
+        setParsedTrigger(parsedTrigger);
+      }, [setFrom, setTo, setRate]);
+    
+    const [parsedTrigger, setParsedTrigger] = React.useState(false);
     
     
     return(

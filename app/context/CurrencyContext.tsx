@@ -1,7 +1,7 @@
 "use client"
 
 //createContext,useStateは"use client"必要
-import React, { useState, createContext, ReactNode , Dispatch, SetStateAction, useEffect } from "react";
+import { useState, createContext, ReactNode , Dispatch, SetStateAction } from "react";
 
 interface CountryType {
     code: string;

@@ -26,52 +26,26 @@ interface CountrySelectProps{
 }
 
 const countries: readonly CountryType[] = [
-  {
-    code: 'AE',
-    label: 'UAEディルハム',
-    currency: 'AED',
-
-  },
-  { code: 'AR', label: 'アルゼンチンペソ' ,currency: 'ARS'},
-  {
-    code: 'AU',
-    label: 'オーストラリアドル',
-    currency: 'AUD',
-  },
-  { code: 'BR', label: 'レアル',currency: 'BRL', },
-  {
-    code: 'CA',
-    label: 'カナダドル',
-    currency: 'CAD',
-  },
+  { code: 'AE', label: 'UAEディルハム', currency: 'AED' },
+  { code: 'AR', label: 'アルゼンチンペソ', currency: 'ARS' },
+  { code: 'AU', label: 'オーストラリアドル', currency: 'AUD' },
+  { code: 'BR', label: 'レアル', currency: 'BRL' },
+  { code: 'CA', label: 'カナダドル', currency: 'CAD' },
   { code: 'CN', label: '元', currency: 'CNY' },
   { code: 'CO', label: 'コロンビアペソ', currency: 'COP' },
-  {
-    code: 'DE',
-    label: 'ユーロ',
-    currency: 'EUR'
-  },
-  { code: 'GB', label: 'ポンド',currency: 'GBP', },
-  { code: 'ID', label: 'ルピア', currency: 'IDR', },
-  { code: 'IN', label: 'ルピー', currency: 'INR',},
-  {
-    code: 'JP',
-    label: '円',
-    currency: 'JPY'
-  },
-  { code: 'KR', label: 'ウォン',currency: 'KRW'},
-  { code: 'MX', label: 'メキシコペソ', currency: 'MXN'},
-  { code: 'PH', label: 'フィリピンペソ', currency: 'PHP'},
-  { code: 'TH', label: 'バーツ' ,currency: 'THB'},
-  { code: 'TR', label: 'リラ' ,currency: 'TRY'},
-  {
-    code: 'US',
-    label: 'ドル',
-    currency: 'USD',
-  },
-
-  { code: 'VN', label: 'ドン',currency: 'VND'},
-  { code: 'ZA', label: 'ランド',currency: 'ZAR'},
+  { code: 'DE', label: 'ユーロ', currency: 'EUR' },
+  { code: 'GB', label: 'ポンド', currency: 'GBP' },
+  { code: 'ID', label: 'ルピア', currency: 'IDR' },
+  { code: 'IN', label: 'ルピー', currency: 'INR' },
+  { code: 'JP', label: '円', currency: 'JPY' },
+  { code: 'KR', label: 'ウォン', currency: 'KRW' },
+  { code: 'MX', label: 'メキシコペソ', currency: 'MXN' },
+  { code: 'PH', label: 'フィリピンペソ', currency: 'PHP' },
+  { code: 'TH', label: 'バーツ', currency: 'THB' },
+  { code: 'TR', label: 'リラ', currency: 'TRY' },
+  { code: 'US', label: 'ドル', currency: 'USD' },
+  { code: 'VN', label: 'ドン', currency: 'VND' },
+  { code: 'ZA', label: 'ランド', currency: 'ZAR' },
 ];
 
 export default function CountrySelect({parsedTrigger}:CountrySelectProps) {
@@ -90,15 +64,12 @@ export default function CountrySelect({parsedTrigger}:CountrySelectProps) {
 
   const exchangeCurrency = () => {
     if (val1 && val2) {
-      console.log(val1);
       const newLabel1= val2;
       const newLabel2 = val1;
       setVal1(newLabel1);
       setVal2(newLabel2);
-
     }
-    
-}
+  }
    
   return (
     <>
@@ -141,13 +112,14 @@ export default function CountrySelect({parsedTrigger}:CountrySelectProps) {
                 autoComplete: 'new-password', 
                 placeholder: '入力してください', 
               }}
-              sx={{ '& .MuiInputBase-input': { width: 100 } }}
-              value={val1 ? val1.label : ''} 
+              // sx={{ '& .MuiInputBase-input': { width: 100 } }}
+              // value={val1 ? val1.label : ''} 
            />
            )}
           />
-        <Fab color="primary" aria-label="add">
-          <SyncAltIcon onClick={exchangeCurrency}/>
+          {/* zIndexでウィンドウ全体に広がるクリック時のエフェクトを停止 */}
+        <Fab color="primary" aria-label="add" onClick={exchangeCurrency} sx={{ zIndex: 1 }}>
+          <SyncAltIcon/>
         </Fab>
         <Autocomplete
           id="country-select-demo"
@@ -180,21 +152,19 @@ export default function CountrySelect({parsedTrigger}:CountrySelectProps) {
           }}
           renderInput={(params) => (
             <TextField
-              sx={{ '.MuiAutocomplete-input': { width: "auto" }, '& .css-1k5x6e8-MuiAutocomplete-root': { width: "auto" }}}
+              sx={{ '.MuiAutocomplete-input': { width: "100%" }, '& .css-1k5x6e8-MuiAutocomplete-root': { width: "auto" }}}
               {...params}
               label="換算先通貨"
               inputProps={{
                 ...params.inputProps,
                 placeholder: '入力してください', 
               }}
-              value={val2 ? val2.label : ''} 
+              // value={val2 ? val2.label : ''} 
             />
         )}
         />
       </Box>
-      <RateButton
-        parsedTrigger={parsedTrigger}
-       />
+      <RateButton parsedTrigger={parsedTrigger}/>
      </ThemeProvider>
     </>
     
